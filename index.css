@@ -1,0 +1,298 @@
+:root {
+    --font-main: 'Nunito', sans-serif;
+    --font-super-title: 'Righteous', cursive;
+    --font-subtitles: 'Josefin Sans', sans-serif;
+    --background-color: #333;
+    --text-color:#fff;
+    --link-color:#17FFA6;
+    --link-color-active:#8cb9b4;
+    --selection-color: #5fc9fa;
+}
+
+/* ******************** RESET ********************* */
+html {
+    box-sizing: border-box;
+    font-family: var(--font-main);
+    font-size: 16px;
+    scroll-behavior: smooth;
+    height: 100%;
+    background-color: var(--background-color);
+  }
+  
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    color: var(--text-color);
+  }
+
+  a::selection, p::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection, img::selection, i::selection, small::selection, strong::selection, br::selection, div::selection, em::selection, li::selection {
+    background-color: var(--link-color);
+    color: var(--background-color);
+  }
+  
+  a {
+    color: var(--link-color);
+    transition: all 0.5s ease-out;
+    text-decoration: none;
+  }
+  
+  a:hover, a:active {
+    color: var(--link-color-active);
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: var(--font-super-title);
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: var(--font-subtitles)
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-family: var(--font-subtitles)
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-family: var(--font-subtitles)
+  }
+  
+  h5 {
+    margin: 0;
+    font-size: 0.85rem;
+    font-family: var(--font-subtitles)
+  }
+  
+  h6 {
+    margin: 0;
+    font-size: 0.7rem;
+    font-family: var(--font-subtitles)
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  /* ******************** HEADER ********************* */
+
+  /* LOGO */
+  .main-logo {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background-image: url(assets/tractor-logo.svg);
+    background-repeat: no-repeat;
+    
+  }
+
+  .main-logo a h1 {
+    color: var(--selection-color);
+    font-size: 1.6rem;
+    margin-left: 2.2rem;
+    padding-top: 0.4rem;
+  }
+
+  @media (min-width: 767px) {
+    .main-logo a h1 {
+      font-size: 2rem;
+      margin-left: 2.6rem;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .main-logo a h1 {
+      font-size: 3rem;
+      margin-left: 3.6rem;
+    }
+  }
+
+  /* NAVBAR */
+  .wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--background-color);
+    clip-path: circle(25px at calc(100% - 45px) 45px);
+    transition: all .7s ease-in-out;
+  }
+  #active:checked ~ .wrapper{
+    clip-path: circle(75%);
+  }
+  .menu-btn{
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--link-color);
+    cursor: pointer;
+    background: var(--background-color);
+    transition: all 0.7s ease-in-out;
+  }
+  #active:checked ~ .menu-btn{
+    color: var(--link-color);
+  }
+  #active:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  .wrapper ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  .wrapper ul li{
+    margin: 15px 0;
+  }
+  .wrapper ul li a{
+    color: none;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 5px 30px;
+    color: var(--link-color);
+    border-radius: 50px;
+    background: var(--background-color);
+    position: relative;
+    line-height: 50px;
+    transition: all 0.3s ease;
+  }
+  .wrapper ul li a:after{
+    position: absolute;
+    content: "";
+    background: #fff;
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    width: 104%;
+    height: 110%;
+    left: -2%;
+    top: -5%;
+    border-radius: 50px;
+    transform: scaleY(0);
+    z-index: -1;
+    animation: rotate 1.5s linear infinite;
+    transition: transform 0.3s ease;
+  }
+  .wrapper ul li a:hover:after{
+    transform: scaleY(1);
+  }
+  .wrapper ul li a:hover{
+    color: var(--link-color-active);
+  }
+  input[type="checkbox"]{
+    display: none;
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    text-align: center;
+    width: 100%;
+    color: #202020;
+  }
+  .content .title{
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .content p{
+    font-size: 35px;
+    font-weight: 600;
+  }
+  
+  @keyframes rotate {
+    0%{
+      filter: hue-rotate(0deg);
+    }
+    100%{
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  /* LOGIN GAME */
+  i {
+    padding-right: .2rem;
+  }
+
+  .main-login {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .main-login a {
+    margin-right: 1rem;
+  }
+  
+
+  /* ******************** FOOTER ********************* */
+
+  footer {
+    margin-top: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+
+  .footer-menu > nav, .social-menu > nav {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .footer-menu > nav > ul, .social-menu > nav > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    list-style: none;
+    justify-content: space-around;
+    padding-left: 0;
+  }
+
+  .footer-menu > nav > ul > li {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+
+  .footer-menu > nav > ul > li > a {
+    font-size: 0.9rem;
+  }
+
+  .social-menu > nav > ul > li {
+    align-items: center;
+  }
+
+  .social-button > img {
+    width: 40px;
+    max-height: 40px;
+  }
+   
